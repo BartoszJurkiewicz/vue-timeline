@@ -5,18 +5,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { StepInt } from '@/interfaces/'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { StepInt, TimelineOptionsInt } from '@/interfaces/'
 import Step from './Step'
 
 @Component({
-  props: {
-    data: Array
-  },
+  name: 'VTimeline',
   components: { Step }
 })
 export default class VTimeline extends Vue {
+  
+  @Prop({required: true})
   data: StepInt[]
+  
+  @Prop({
+    default: () => {
+      return {
+        dir: 'horizontal',
+        allowWrap: false,
+        wrapSnake: false,
+      }
+    }
+  })
+  options: TimelineOptionsInt
 }
 </script>
 

@@ -7,15 +7,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import { StepInt } from '@/interfaces/'
 
 @Component({
-  props: {
-    stepData: Object
-  }
+  name: 'Step'
 })
 export default class VTimeline extends Vue {
+  @Prop({ required: true })
   stepData: StepInt
 }
 </script>

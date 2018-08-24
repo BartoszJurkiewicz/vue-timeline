@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import VTimeline from './components/VTimeline'
-import { StepInt } from '@/interfaces/'
+import { StepInt, TimelineOptionsInt } from '@/interfaces/'
 
 import moment from 'moment'
 
@@ -18,6 +18,11 @@ export default class App extends Vue {
   
   timeLineDataLength = 5
   timelineData: StepInt[] = []
+  timelineOptions: TimelineOptionsInt = {
+    dir: 'horizontal',
+    allowWrap: true,
+    wrapSnake: false,
+  }
 
   mounted () {
     this.createData()
